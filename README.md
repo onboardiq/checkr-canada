@@ -22,7 +22,103 @@ Or install it yourself as:
 
 ## Usage
 
-TBD
+
+First, you should initialize a client using your API key:
+
+```ruby
+require 'checkr-canada'
+
+client = Checkr::Canada::Client.new('my-checkr-api-key')
+```
+
+Then you can make API requests:
+
+
+```ruby
+# ==== Candidates ==== #
+
+# Create a candidate
+client.candidates.create(
+  first_name: "Test",
+  last_name: "Candidate",
+  email: "testonboard@test.com",
+  phone: "000-000-0002",
+  birth_place: "Toronto",
+  dob: Date.new(2017, 3, 23), # accepts Data, Time and String objects
+  gender: "F"
+)
+
+#=> <Checkr::Canada::Entities::Candidate ...>
+
+
+# Get a candidate
+client.candidates.get("123123123")
+
+#=> <Checkr::Canada::Entities::Candidate ...>
+
+# List candidates
+result = client.candidates.all(page: 1, per_page: 10)
+result.count = 42
+result.data #=> [<Checkr::Canada::Entities::Candidate ...>, ...]
+
+
+# ==== Documents ==== #
+
+# Upload a document
+client.documents.upload(candidate_id: "123", url: "https://example.com/image.png", type: "identification")
+
+#=> <Checkr::Canada::Entities::Document ...>
+
+
+# ==== Addresses ==== #
+
+# Create an address for a candidate
+client.addresses.create(
+  candidate_id: "123",
+  street1: "Mission st",
+  street2: "4-2",
+  region: "BC",
+  city: "San Francisco",
+  postal_code: "BC341",
+  start_date: "2017-01-02"
+)
+
+#=> <Checkr::Canada::Entities::Address ...>
+
+
+# ==== Reports ==== #
+
+# Create a report
+client.reports.create(candidate_id: "123", package: "mvr")
+
+#=> <Checkr::Canada::Entities::Report ...>
+
+# Get a report
+client.report.get("123123123")
+
+#=> <Checkr::Canada::Entities::Report ...>
+
+# List reports
+result = client.reports.all(page: 1, per_page: 10)
+result.count = 42
+result.data #=> [<Checkr::Canada::Entities::Report ...>, ...]
+
+# ==== Criminal Records ==== #
+
+# TODO
+```
+
+### Exceptions
+
+Client uses `dry-types` and `evil-client` gems to validate params and response format. There can be the following exceptions:
+
+- `Dry::Types::ConstraintError` when provided data is invalid
+
+- `ArgumentError` when required params are missing
+
+- `Evil::Client::Operation::ResponseError` when API-level error occurs (e.g. authentication failure, resource not found, etc)
+
+- `Evil::Client::Operation::UnexpectedResponseError` when we fail to parse response.
 
 ## Development
 
