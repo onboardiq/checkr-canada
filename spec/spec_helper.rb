@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift File.expand_path("../../lib", __FILE__)
-require "checkr/canada"
 
 begin
   require "pry-byebug"
 rescue LoadError # rubocop: disable Lint/HandleExceptions
 end
+
+require "checkr/canada"
 
 require "webmock/rspec"
 

@@ -6,13 +6,15 @@ require "base64"
 require_relative "types"
 require_relative "ext/stringify_json_patch"
 
-require_relative "entities/report"
-require_relative "entities/candidate"
-
 module Checkr
   module Canada
     # Checkr Canada API client
-    class Client < Evil::Client
+    class Client
+      extend Evil::Client::DSL
+
+      path = File.expand_path("../entities/*.rb", __FILE__)
+      Dir[path].each { |file| require(file) }
+
       settings do
         param :api_key, Types::Strict::String
         option :version, Types::Coercible::Int, default: proc { 1 }
@@ -25,9 +27,6 @@ module Checkr
       operation do |settings|
         security { basic_auth settings.api_key, '' }
       end
-
-      include Entities::Report::Operations
-      include Entities::Candidate::Operations
     end
   end
 end
