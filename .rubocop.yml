@@ -1,0 +1,73 @@
+AllCops:
+  Include:
+    - 'lib/**/*.rb'
+    - 'lib/**/*.rake'
+    - 'spec/**/*.rb'
+  Exclude:
+    - 'bin/**/*'
+    - 'spec/dummy/**/*'
+    - 'tmp/**/*'
+    - 'Rakefile'
+    - 'Gemfile'
+    - '*.gemspec'
+  DisplayCopNames: true
+  StyleGuideCopsOnly: false
+  TargetRubyVersion: 2.4
+
+Rails:
+  Enabled: false
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/TrivialAccessors:
+  Enabled: false
+
+Style/Documentation:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'lib/checkr/canada/entities/**/*.rb'
+
+Style/StringLiterals: 
+  Enabled: false
+
+Style/SpaceInsideStringInterpolation:
+  EnforcedStyle: no_space
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+
+Lint/NestedMethodDefinition:
+  Exclude:
+    - 'lib/checkr/canada/entities/**/*.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'lib/checkr/canada/entities/**/*.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'lib/checkr/canada/entities/**/*.rb'
+
+Metrics/LineLength:
+  Max: 100
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Rails/Date:
+  Enabled: false
+
+Rails/TimeZone:
+  Enabled: false
