@@ -1,0 +1,14 @@
+{
+  "id": "123123zya",
+  "object": "address",
+  "uri": "/ca/v1/addresses/123123zya",
+  "created_at": "2017-03-23T03:02:52Z",
+  "updated_at": "2017-03-23T03:02:52Z",
+  "street1": "Mission st",
+  "street2": "4-2",
+  "city": "San Francisco",
+  "region": "BC",
+  "country": "CA",
+  "postal_code": "BC341",
+  "start_date": "2017-01-02"
+}

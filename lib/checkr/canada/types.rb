@@ -4,6 +4,22 @@ require "dry-types"
 
 module Checkr
   module Canada
+    PROVINCE_CODES = [
+      'AB',
+      'BC',
+      'MB',
+      'NB',
+      'NL',
+      'NT',
+      'NS',
+      'NU',
+      'ON',
+      'PE',
+      'QC',
+      'SK',
+      'YT'
+    ].freeze
+
     # Dry types + custom types
     module Types
       include Dry::Types.module
@@ -19,6 +35,8 @@ module Checkr
       DocumentType = Strict::String.enum(
         'identification', 'consent'
       )
+
+      Province = Strict::String.enum(*PROVINCE_CODES)
 
       Gender = Strict::String.enum('M', 'F')
       Email = Strict::String

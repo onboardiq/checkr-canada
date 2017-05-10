@@ -77,4 +77,33 @@ describe Checkr::Canada::Types do
       expect { subject["image"] }.to raise_error(Dry::Types::ConstraintError)
     end
   end
+
+  describe "Province" do
+    subject { described_class::Province }
+
+    it "accepts", :aggregate_failures do
+      # rubocop: disable Style/WordArray
+      [
+        'AB',
+        'BC',
+        'MB',
+        'NB',
+        'NL',
+        'NT',
+        'NS',
+        'NU',
+        'ON',
+        'PE',
+        'QC',
+        'SK',
+        'YT'
+      ].each do |province|
+        expect(subject[province]).to eq province
+      end
+    end
+
+    it "rejects" do
+      expect { subject["New York"] }.to raise_error(Dry::Types::ConstraintError)
+    end
+  end
 end

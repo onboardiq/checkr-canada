@@ -12,7 +12,7 @@ module Checkr
         attribute :adjudication, Types::String, optional: true
         attribute :created_at, Types::Json::DateTime
         attribute :completed_at, Types::Json::DateTime
-        attribute :turnaround_time, Types::Strict::Int, optional: true
+        attribute :turnaround_time, Types::Int, optional: true
         attribute :account_id, Types::Strict::String, optional: true
         attribute :candidate_id, Types::Strict::String, optional: true
         attribute :motor_vehicle_report_id, Types::String, optional: true

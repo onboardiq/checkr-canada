@@ -2,27 +2,30 @@
 
 require "spec_helper"
 
-describe "Documents" do
+describe "Addresses" do
   let(:client) { Checkr::Canada::Client.new("test_api_key") }
 
-  describe "#upload" do
+  describe "#create" do
     let(:answer) do
-      File.read("./spec/fixtures/document.json")
+      File.read("./spec/fixtures/address.json")
     end
 
     let(:params) do
       {
         candidate_id: 'abc123xyz',
-        type: "identification",
-        url: "http://example.com/image.png",
-        filename: "test.png"
+        street1: "Mission st",
+        street2: "4-2",
+        region: "BC",
+        city: "San Francisco",
+        postal_code: "BC341",
+        start_date: "2017-01-02"
       }
     end
 
-    subject(:doc) { client.documents.upload(**params) }
+    subject(:doc) { client.addresses.create(**params) }
 
     before do
-      stub_request(:post, /candidates\/abc123xyz\/documents/)
+      stub_request(:post, /candidates\/abc123xyz\/addresses/)
         .to_return(
           body: answer,
           status: 201
@@ -33,23 +36,23 @@ describe "Documents" do
       subject
 
       expect(
-        a_request(:post, "https://api.checkr.com/ca/v1/candidates/abc123xyz/documents")
+        a_request(:post, "https://api.checkr.com/ca/v1/candidates/abc123xyz/addresses")
       ).to have_been_made
     end
 
-    it "returns a document", :aggregate_failures do
-      expect(doc.filename).to eq "test.png"
+    it "returns an address", :aggregate_failures do
+      expect(doc.country).to eq "CA"
       expect(doc.created_at).to be_a(DateTime)
     end
 
     it "raises when missing params" do
-      params.delete(:type)
+      params.delete(:region)
 
       expect { subject }.to raise_error(ArgumentError)
     end
 
-    it "raises when unknown type" do
-      params[:type] = "image"
+    it "raises when unknown region" do
+      params[:region] = "Arizona"
 
       expect { subject }.to raise_error(TypeError)
     end
