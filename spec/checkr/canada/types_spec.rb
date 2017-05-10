@@ -64,4 +64,17 @@ describe Checkr::Canada::Types do
       expect { subject["stupid"] }.to raise_error(Dry::Types::ConstraintError)
     end
   end
+
+  describe "DocumentType" do
+    subject { described_class::DocumentType }
+
+    it "accepts", :aggregate_failures do
+      expect(subject["identification"]).to eq "identification"
+      expect(subject["consent"]).to eq "consent"
+    end
+
+    it "rejects" do
+      expect { subject["image"] }.to raise_error(Dry::Types::ConstraintError)
+    end
+  end
 end

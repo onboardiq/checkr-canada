@@ -16,6 +16,10 @@ module Checkr
         'mvr', 'criminal', 'criminal_mvr'
       )
 
+      DocumentType = Strict::String.enum(
+        'identification', 'consent'
+      )
+
       Gender = Strict::String.enum('M', 'F')
       Email = Strict::String
 
