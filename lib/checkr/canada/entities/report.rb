@@ -6,7 +6,7 @@ module Checkr::Canada
       attribute :id, Types::Strict::String
       attribute :object, Types::Strict::String
       attribute :uri, Types::Strict::String
-      attribute :package, Types::Strict::String
+      attribute :package, Types::Package
       attribute :status, Types::Status
       attribute :adjudication, Types::String, optional: true
       attribute :created_at, Types::Json::DateTime
@@ -70,7 +70,7 @@ module Checkr::Canada
             path { |candidate_id:, **| "candidates/#{candidate_id}/reports" }
 
             body format: "json" do
-              attribute :package, Types::Strict::String
+              attribute :package, Types::Package
             end
 
             response :success, 200, format: :json, model: Report

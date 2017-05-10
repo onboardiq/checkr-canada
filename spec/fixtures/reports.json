@@ -1,0 +1,23 @@
+{
+  "object": "list",
+  "count": 1,
+  "data": [
+    {
+      "id": "765f157c2e8c44d06e610ff5",
+      "object": "test_report",
+      "uri": "/ca/v1/reports/765f157c2e8c44d06e610ff5",
+      "package": "criminal",
+      "status": "clear",
+      "adjudication": null,
+      "created_at": "2017-05-02T13:23:34Z",
+      "completed_at": "2017-05-02T13:23:38Z",
+      "turnaround_time": 4,
+      "account_id": "4d31b2302769ef393e371e9c",
+      "candidate_id": "7f23225f47ee143389595481",
+      "motor_vehicle_report_id": null,
+      "national_criminal_search_id": "590888566d2f4c000b0a8725",
+      "criminal_record_ids": [],
+      "document_ids": []
+    }
+  ]
+}

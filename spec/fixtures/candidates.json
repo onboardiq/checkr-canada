@@ -1,0 +1,30 @@
+{
+  "object": "list",
+  "count": 1,
+  "data": [
+    {
+      "id": "ca1b9ca32fc52fd902a57487",
+      "custom_id": null,
+      "birth_country": "CA",
+      "birth_place": "Toronto",
+      "dob": "1975-03-19",
+      "driver_license_number": null,
+      "driver_license_province": null,
+      "email": "testonboard@test.com",
+      "entry_date": null,
+      "first_name": "Test",
+      "gender": "M",
+      "last_name": "Candidate",
+      "middle_name": "",
+      "mother_maiden_name": null,
+      "nationality": null,
+      "object": "test_candidate",
+      "phone": "000-000-0002",
+      "province": null,
+      "uri": "/ca/v1/candidates/ca1b9ca32fc52fd902a57487",
+      "created_at": "2017-03-23T03:02:52Z",
+      "address_ids": [],
+      "disclosed_criminal_record_ids": []
+    }
+  ]
+}
