@@ -1,0 +1,10 @@
+{
+  "id": "e5174d1f545209e976afc765",
+  "uri": "/ca/v1/criminal_records/e5174d1f545209e976afc765",
+  "object": "criminal_record",
+  "location": "Moscow",
+  "offence": "Pissing in the street",
+  "sentence_date": "2001-03-21",
+  "created_at": "2017-05-11T08:31:43Z",
+  "updated_at": "2017-05-11T08:31:43Z"
+}

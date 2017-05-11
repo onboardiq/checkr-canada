@@ -4,20 +4,20 @@ require "dry-types"
 
 module Checkr
   module Canada
-    PROVINCE_CODES = [
-      'AB',
-      'BC',
-      'MB',
-      'NB',
-      'NL',
-      'NT',
-      'NS',
-      'NU',
-      'ON',
-      'PE',
-      'QC',
-      'SK',
-      'YT'
+    PROVINCE_CODES = %w[
+      AB
+      BC
+      MB
+      NB
+      NL
+      NT
+      NS
+      NU
+      ON
+      PE
+      QC
+      SK
+      YT
     ].freeze
 
     # Dry types + custom types

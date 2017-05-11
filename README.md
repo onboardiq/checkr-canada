@@ -105,7 +105,10 @@ result.data #=> [<Checkr::Canada::Entities::Report ...>, ...]
 
 # ==== Criminal Records ==== #
 
-# TODO
+# Create a record
+client.criminal_records.create(candidate_id: 'ca1b9ca32fc52fd902a57487', offence: 'Killing Teddy Bear', sentence_date: Date.today, location: 'Moscow')
+
+#=> <Checkr::Canada::Entities::CriminalRecord ...>
 ```
 
 ### Exceptions
