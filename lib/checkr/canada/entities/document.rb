@@ -39,8 +39,8 @@ module Checkr
       end
 
       scope :documents do
-        def upload(**data)
-          operations[:upload_document].call(**data)
+        def upload(data)
+          operations[:upload_document].call(data)
         end
       end
     end

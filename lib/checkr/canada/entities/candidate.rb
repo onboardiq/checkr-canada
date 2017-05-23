@@ -100,12 +100,12 @@ module Checkr
           operations[:list_candidates].call(**data)
         end
 
-        def get(id, **data)
-          operations[:get_candidate].call(id: id, **data)
+        def get(id, data = {})
+          operations[:get_candidate].call(data.merge(id: id))
         end
 
-        def create(**data)
-          operations[:create_candidate].call(**data)
+        def create(data)
+          operations[:create_candidate].call(data)
         end
       end
     end

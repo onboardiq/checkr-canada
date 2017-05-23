@@ -40,8 +40,8 @@ module Checkr
       end
 
       scope :criminal_records do
-        def create(**data)
-          operations[:create_criminal_record].call(**data)
+        def create(data)
+          operations[:create_criminal_record].call(data)
         end
       end
     end

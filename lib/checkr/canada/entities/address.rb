@@ -42,8 +42,8 @@ module Checkr
       end
 
       scope :addresses do
-        def create(**data)
-          operations[:create_address].call(**data)
+        def create(data)
+          operations[:create_address].call(data)
         end
       end
     end

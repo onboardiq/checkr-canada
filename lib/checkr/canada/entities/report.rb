@@ -91,12 +91,12 @@ module Checkr
           operations[:list_reports].call(**data)
         end
 
-        def get(id, **data)
-          operations[:get_report].call(id: id, **data)
+        def get(id, data = {})
+          operations[:get_report].call(data.merge(id: id))
         end
 
-        def create(**data)
-          operations[:create_report].call(**data)
+        def create(data)
+          operations[:create_report].call(data)
         end
       end
     end
