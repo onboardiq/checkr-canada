@@ -118,7 +118,8 @@ describe "Reports" do
     before do
       stub_request(:post, /reports/)
         .to_return(
-          body: answer
+          body: answer,
+          status: 201
         )
     end
 

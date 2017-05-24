@@ -75,7 +75,7 @@ module Checkr
           attribute :package, Types::Package
         end
 
-        response :success, 200, format: :json, model: Entities::Report
+        response :success, 201, format: :json, model: Entities::Report
 
         response :not_authorized, 401, format: :json, raise: true do
           attribute :error
