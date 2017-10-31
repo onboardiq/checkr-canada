@@ -17,7 +17,7 @@ module Checkr
         attribute :candidate_id, Types::Strict::String, optional: true
         attribute :motor_vehicle_report_id, Types::String, optional: true
         attribute :national_criminal_search_id, Types::String, optional: true
-        attribute :criminal_record_ids, Types::Array.member(Types::Strict::String), optional: true
+        attribute :criminal_record_ids, Types::Array.member(Types::Strict::Int), optional: true
         attribute :document_ids, Types::Array.member(Types::Strict::String), optional: true
       end
     end
