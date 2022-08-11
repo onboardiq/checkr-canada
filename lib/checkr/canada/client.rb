@@ -17,7 +17,7 @@ module Checkr
 
       settings do
         param :api_key, Types::Strict::String
-        option :version, Types::Coercible::Int, default: proc { 1 }
+        option :version, Types::Coercible::Integer, default: proc { 1 }
       end
 
       base_url do |settings|
