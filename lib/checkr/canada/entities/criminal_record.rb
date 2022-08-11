@@ -13,8 +13,8 @@ module Checkr
         attribute :id, Types::Strict::String
         attribute :object, Types::String, optional: true
         attribute :uri, Types::Strict::String
-        attribute :created_at, Types::Json::DateTime
-        attribute :updated_at, Types::Json::DateTime, optional: true
+        attribute :created_at, Types::JSON::DateTime
+        attribute :updated_at, Types::JSON::DateTime, optional: true
       end
     end
 

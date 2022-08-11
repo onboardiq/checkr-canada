@@ -9,9 +9,9 @@ module Checkr
         attribute :filename, Types::String, optional: true
         attribute :uri, Types::Strict::String
         attribute :download_uri, Types::Strict::String
-        attribute :created_at, Types::Json::DateTime
+        attribute :created_at, Types::JSON::DateTime
         attribute :content_type, Types::String, optional: true
-        attribute :filesize, Types::Int, optional: true
+        attribute :filesize, Types::Integer, optional: true
       end
     end
 

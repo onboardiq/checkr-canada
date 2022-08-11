@@ -10,15 +10,15 @@ module Checkr
         attribute :package, Types::Package
         attribute :status, Types::Status
         attribute :adjudication, Types::String, optional: true
-        attribute :created_at, Types::Json::DateTime
-        attribute :completed_at, Types::Json::DateTime
-        attribute :turnaround_time, Types::Int, optional: true
+        attribute :created_at, Types::JSON::DateTime
+        attribute :completed_at, Types::JSON::DateTime
+        attribute :turnaround_time, Types::Integer, optional: true
         attribute :account_id, Types::Strict::String, optional: true
         attribute :candidate_id, Types::Strict::String, optional: true
         attribute :motor_vehicle_report_id, Types::String, optional: true
         attribute :national_criminal_search_id, Types::String, optional: true
-        attribute :criminal_record_ids, Types::Array.member(Types::Strict::Int), optional: true
-        attribute :document_ids, Types::Array.member(Types::Strict::String), optional: true
+        attribute :criminal_record_ids, Types::Array.of(Types::Strict::Integer), optional: true
+        attribute :document_ids, Types::Array.of(Types::Strict::String), optional: true
       end
     end
 
@@ -38,8 +38,8 @@ module Checkr
           attribute :object, Types::Strict::String
           attribute :next_href, Types::String, optional: true
           attribute :previous_href, Types::String, optional: true
-          attribute :count, Types::Strict::Int
-          attribute :data, Types::Coercible::Array.member(Entities::Report)
+          attribute :count, Types::Strict::Integer
+          attribute :data, Types::Coercible::Array.of(Entities::Report)
         end
 
         response :not_authorized, 401, format: :json, raise: true do

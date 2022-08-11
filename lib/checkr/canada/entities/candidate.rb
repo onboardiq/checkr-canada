@@ -30,10 +30,10 @@ module Checkr
         attribute :id, Types::Strict::String
         attribute :object, Types::Strict::String
         attribute :uri, Types::Strict::String
-        attribute :created_at, Types::Json::DateTime
-        attribute :updated_at, Types::Json::DateTime, optional: true
+        attribute :created_at, Types::JSON::DateTime
+        attribute :updated_at, Types::JSON::DateTime, optional: true
 
-        attribute :address_ids, Types::Strict::Array.member(Types::Strict::String)
+        attribute :address_ids, Types::Strict::Array.of(Types::Strict::String)
       end
     end
 
@@ -53,8 +53,8 @@ module Checkr
           attribute :object, Types::Strict::String
           attribute :next_href, Types::String, optional: true
           attribute :previous_href, Types::String, optional: true
-          attribute :count, Types::Strict::Int
-          attribute :data, Types::Coercible::Array.member(Entities::Candidate)
+          attribute :count, Types::Strict::Integer
+          attribute :data, Types::Coercible::Array.of(Entities::Candidate)
         end
 
         response :not_authorized, 401, format: :json, raise: true do
