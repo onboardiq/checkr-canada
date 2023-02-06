@@ -22,7 +22,7 @@ module Checkr
 
     # Dry types + custom types
     module Types
-      include Dry::Types.module
+      include Dry.Types(default: :nominal)
 
       Status = Strict::String.enum(
         'pending', 'clear', 'consider', 'suspended'
